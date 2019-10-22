@@ -53,6 +53,7 @@ class AssetTableViewController: UITableViewController {
         cell.pricePerShare.text = String(format: "Share value: $%.2f", pricePerShare)
         let value = pricePerShare * Float(asset.numberOfShares)
         cell.value.text = String(format: "Total value: $%.2f", value)
+        cell.value.textColor = UIColor(red: 0.0, green: 100/256, blue: 0.0, alpha: 1.0)
         return cell
     }
 
@@ -156,6 +157,15 @@ class AssetTableViewController: UITableViewController {
     
     private func pricePerShareFor(name: String) -> Float {
         // FixMe: use api!
-        return 100.0
+        switch(name.lowercased()) {
+        case "aapl":
+            return 240.51
+        case "goog":
+            return 1244.28
+        case "sbux":
+            return 85.35
+        default:
+            return 100.0
+        }
     }
 }
