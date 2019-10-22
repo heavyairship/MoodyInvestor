@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Your Assets-->
+        <!--Portfolio-->
         <scene sceneID="fw4-pc-KKU">
             <objects>
                 <tableViewController id="PZZ-9F-9tF" customClass="AssetTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="PZZ-9F-9tF" id="R9O-Z0-7yI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Assets" id="baf-9q-FcY">
+                    <navigationItem key="navigationItem" title="Portfolio" id="baf-9q-FcY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FY1-yF-Gsh">
                             <connections>
                                 <segue destination="Cak-oX-mdS" kind="presentation" identifier="AddItem" id="fEc-qn-XKK"/>
@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tnf-lm-ryq">
-                                <rect key="frame" x="10" y="108" width="394" height="432"/>
+                                <rect key="frame" x="10" y="108" width="394" height="474"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ticker symbol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ode-N1-0QI">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -112,8 +112,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How are you feeling?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WSl-Yl-fry" userLabel="Mood Text Field">
+                                        <rect key="frame" x="0.0" y="84" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="nWr-rn-H9q">
-                                        <rect key="frame" x="23" y="84" width="348" height="348"/>
+                                        <rect key="frame" x="23" y="126" width="348" height="348"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nWr-rn-H9q" secondAttribute="height" multiplier="1:1" id="rbn-US-DDs"/>
@@ -124,6 +129,8 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WSl-Yl-fry" secondAttribute="trailing" id="0Zb-0u-4E6"/>
+                                    <constraint firstItem="WSl-Yl-fry" firstAttribute="leading" secondItem="tnf-lm-ryq" secondAttribute="leading" id="2ZQ-mY-6lq"/>
                                     <constraint firstItem="8Cx-SD-H7l" firstAttribute="leading" secondItem="tnf-lm-ryq" secondAttribute="leading" id="CZO-1H-7LE"/>
                                     <constraint firstAttribute="trailing" secondItem="nWr-rn-H9q" secondAttribute="trailing" constant="23" id="Oxg-KA-VxR"/>
                                     <constraint firstAttribute="trailing" secondItem="Ode-N1-0QI" secondAttribute="trailing" id="Zzh-h5-MjL"/>
@@ -152,6 +159,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="moodTextField" destination="WSl-Yl-fry" id="I5x-Aq-Y7D"/>
                         <outlet property="nameTextField" destination="Ode-N1-0QI" id="5My-PA-ZaP"/>
                         <outlet property="numberOfSharesTextField" destination="8Cx-SD-H7l" id="oLo-KL-lYv"/>
                         <outlet property="photoImageView" destination="nWr-rn-H9q" id="Uvc-Hj-iWu"/>

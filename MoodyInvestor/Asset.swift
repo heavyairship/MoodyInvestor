@@ -16,6 +16,7 @@ class Asset: NSObject, NSCoding {
     var name: String
     var photo: UIImage?
     var numberOfShares: Int
+    var mood: String
     
     //MARK: Archiving Paths
      
@@ -28,11 +29,12 @@ class Asset: NSObject, NSCoding {
         static let name = "name"
         static let photo = "photo"
         static let numberOfShares = "numberOfShares"
+        static let mood = "mood"
     }
     
     //MARK: Initialization
      
-    init?(name: String, photo: UIImage?, numberOfShares: Int) {
+    init?(name: String, photo: UIImage?, numberOfShares: Int, mood: String) {
         // Initialize stored properties.
         
         // The name must not be empty
@@ -47,6 +49,7 @@ class Asset: NSObject, NSCoding {
         self.name = name
         self.photo = Asset.photoFor(name: name)
         self.numberOfShares = numberOfShares
+        self.mood = mood
     }
     
     //MARK: Private Methods
@@ -63,6 +66,7 @@ class Asset: NSObject, NSCoding {
         aCoder.encode(name, forKey: PropertyKey.name)
         aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(numberOfShares, forKey: PropertyKey.numberOfShares)
+        aCoder.encode(mood, forKey: PropertyKey.mood)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -78,8 +82,13 @@ class Asset: NSObject, NSCoding {
         
         let numberOfShares = aDecoder.decodeInteger(forKey: PropertyKey.numberOfShares)
         
+        guard let mood = aDecoder.decodeObject(forKey: PropertyKey.mood) as? String else {
+            os_log("Unable to decode the mood for an Asset object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        
         // Must call designated initializer.
-        self.init(name: name, photo: photo, numberOfShares: numberOfShares)
+        self.init(name: name, photo: photo, numberOfShares: numberOfShares, mood: mood)
         
     }
 }

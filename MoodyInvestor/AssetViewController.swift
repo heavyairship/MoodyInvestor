@@ -20,6 +20,7 @@ class AssetViewController:
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var numberOfSharesTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var moodTextField: UITextField!
     
     /*
      This value is either passed by `AssetTableViewController` in `prepare(for:sender:)`
@@ -38,6 +39,7 @@ class AssetViewController:
             nameTextField.text   = asset.name
             photoImageView.image = asset.photo
             numberOfSharesTextField.text = String(asset.numberOfShares)
+            moodTextField.text = asset.mood
         }
         
         // Enable the Save button only if the text field has a valid Asset name.
@@ -105,8 +107,9 @@ class AssetViewController:
             os_log("Could not convert number of shares to Int")
             return
         }
+        let mood = moodTextField.text ?? ""
         // Set the asset to be passed to AssetTableViewController after the unwind segue.
-        asset = Asset(name: name, photo: photo, numberOfShares: numberOfShares)
+        asset = Asset(name: name, photo: photo, numberOfShares: numberOfShares, mood: mood)
     }
     
     //MARK: Actions
