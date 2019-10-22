@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Portfolio-->
+        <!--Stock Portfolio-->
         <scene sceneID="fw4-pc-KKU">
             <objects>
                 <tableViewController id="PZZ-9F-9tF" customClass="AssetTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="PZZ-9F-9tF" id="R9O-Z0-7yI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Portfolio" id="baf-9q-FcY">
+                    <navigationItem key="navigationItem" title="Stock Portfolio" id="baf-9q-FcY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FY1-yF-Gsh">
                             <connections>
                                 <segue destination="Cak-oX-mdS" kind="presentation" identifier="AddItem" id="fEc-qn-XKK"/>
@@ -91,7 +91,7 @@
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="120.53571428571428"/>
         </scene>
-        <!-- New Asset-->
+        <!-- New Stock Asset-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AssetViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,7 +146,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title=" New Asset" id="gz3-1H-smP" userLabel="New Asset">
+                    <navigationItem key="navigationItem" title=" New Stock Asset" id="gz3-1H-smP" userLabel="New Asset">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xrJ-AV-BFk">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="KEQ-tX-t7H"/>
