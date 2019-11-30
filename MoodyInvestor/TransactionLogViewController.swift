@@ -21,7 +21,7 @@ class TransactionLogViewController: UITableViewController {
         super.viewDidLoad()
         // Load any saved assets, otherwise load sample data.
         if let transactionLog = TransactionLogService.loadTransactionLog() {
-            self.transactionLog = transactionLog
+            self.transactionLog = transactionLog.reversed()
         }
     }
 
