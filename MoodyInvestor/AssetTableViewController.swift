@@ -11,6 +11,9 @@ import os.log
 
 class AssetTableViewController: UITableViewController {
     
+    //MARK: Static variables
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+
     //MARK: Properties
     var assets = [Asset]()
     
@@ -139,11 +142,16 @@ class AssetTableViewController: UITableViewController {
             saveAssets()
         }
     }
+
+    func archiveURL() -> URL {
+        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("assets")
+        return archiveURL
+    }
     
     //MARK: Private Methods
     
     private func saveAssets() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(assets, toFile: Asset.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(assets, toFile: archiveURL().path)
         if isSuccessfulSave {
             os_log("Assets successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -152,7 +160,7 @@ class AssetTableViewController: UITableViewController {
     }
     
     private func loadAssets() -> [Asset]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Asset.ArchiveURL.path) as? [Asset]
+        return NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL().path) as? [Asset]
     }
     
     private func pricePerShareFor(name: String) -> Float {

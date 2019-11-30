@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		811CA934235E99510042A501 /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CA933235E99510042A501 /* AssetTableViewCell.swift */; };
 		811CA936235E9D640042A501 /* AssetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CA935235E9D640042A501 /* AssetTableViewController.swift */; };
+		819E1FC623920363004EB955 /* StockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1FC523920363004EB955 /* StockTableViewController.swift */; };
+		819E1FC823920845004EB955 /* BondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1FC723920845004EB955 /* BondTableViewController.swift */; };
 		81B41CC4235B8BE00058D460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CC3235B8BE00058D460 /* AppDelegate.swift */; };
 		81B41CC6235B8BE00058D460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CC5235B8BE00058D460 /* SceneDelegate.swift */; };
 		81B41CC8235B8BE00058D460 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CC7235B8BE00058D460 /* AssetViewController.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		811CA933235E99510042A501 /* AssetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
 		811CA935235E9D640042A501 /* AssetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewController.swift; sourceTree = "<group>"; };
+		819E1FC523920363004EB955 /* StockTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewController.swift; sourceTree = "<group>"; };
+		819E1FC723920845004EB955 /* BondTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondTableViewController.swift; sourceTree = "<group>"; };
 		81B41CC0235B8BE00058D460 /* MoodyInvestor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodyInvestor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B41CC3235B8BE00058D460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81B41CC5235B8BE00058D460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				81B41CCC235B8BE40058D460 /* Assets.xcassets */,
 				81B41CCE235B8BE40058D460 /* LaunchScreen.storyboard */,
 				81B41CD1235B8BE40058D460 /* Info.plist */,
+				819E1FC523920363004EB955 /* StockTableViewController.swift */,
+				819E1FC723920845004EB955 /* BondTableViewController.swift */,
 			);
 			path = MoodyInvestor;
 			sourceTree = "<group>";
@@ -275,8 +281,10 @@
 				81B41CF4235CB9610058D460 /* RatingControl.swift in Sources */,
 				811CA936235E9D640042A501 /* AssetTableViewController.swift in Sources */,
 				811CA934235E99510042A501 /* AssetTableViewCell.swift in Sources */,
+				819E1FC623920363004EB955 /* StockTableViewController.swift in Sources */,
 				81B41CC8235B8BE00058D460 /* AssetViewController.swift in Sources */,
 				81B41CC4235B8BE00058D460 /* AppDelegate.swift in Sources */,
+				819E1FC823920845004EB955 /* BondTableViewController.swift in Sources */,
 				81B41CC6235B8BE00058D460 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

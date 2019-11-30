@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N0o-XB-VXZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1tj-1K-IYQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -10,7 +10,7 @@
         <!--Stock Portfolio-->
         <scene sceneID="fw4-pc-KKU">
             <objects>
-                <tableViewController id="PZZ-9F-9tF" customClass="AssetTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="PZZ-9F-9tF" customClass="StockTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7h5-sg-It8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="120.53571428571428"/>
         </scene>
-        <!-- New Stock Asset-->
+        <!--Stock Asset New-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AssetViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Stock Asset New" customClass="AssetViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,92 +177,141 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="120.53571428571428"/>
         </scene>
-        <!--Home Controller-->
-        <scene sceneID="g3e-PY-f8e">
+        <!--Table View Controller-->
+        <scene sceneID="x3n-nE-aPs">
             <objects>
-                <viewController id="N0o-XB-VXZ" userLabel="Home Controller" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iRB-pR-brN">
+                <tableViewController id="1tj-1K-IYQ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="singleLineEtched" sectionIndexMinimumDisplayRowCount="5" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3b7-Q2-EHT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG0-2y-xS2">
-                                <rect key="frame" x="72" y="119" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2E-Mo-0nw">
-                                <rect key="frame" x="60" y="127" width="295" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Stocks">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="IkR-fJ-SDS" kind="showDetail" id="1as-bD-WkU">
-                                        <segue key="commit" inheritsFrom="parent" id="2Et-sj-d3e"/>
-                                        <segue key="preview" inheritsFrom="commit" id="J85-fU-gFb"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aq5-Df-FfR">
-                                <rect key="frame" x="60" y="328" width="295" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="ETFs">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1t-fe-Oy0">
-                                <rect key="frame" x="60" y="429" width="295" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Mutual Funds">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbX-4m-JWh">
-                                <rect key="frame" x="90" y="157" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhu-uA-IGp">
-                                <rect key="frame" x="80" y="147" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uS-p8-Mpz">
-                                <rect key="frame" x="60" y="227" width="295" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Bonds">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="XPY-BK-111" kind="showDetail" id="Zud-JW-oxr">
-                                        <segue key="commit" inheritsFrom="parent" id="Uxr-TV-0ZO"/>
-                                        <segue key="preview" inheritsFrom="commit" id="hG0-yP-yXF"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="O7X-1a-1Yi"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lgw-X1-tNF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <sections>
+                            <tableViewSection headerTitle="MoodyInvestor" id="06W-i3-2SY">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="ovZ-10-6L6" style="IBUITableViewCellStyleDefault" id="FNm-wS-TJU">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FNm-wS-TJU" id="gQd-XB-2f6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ovZ-10-6L6">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="IkR-fJ-SDS" kind="show" id="WAR-OR-86Y"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="TnY-7h-wRt" style="IBUITableViewCellStyleDefault" id="4Vl-zn-gjQ">
+                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Vl-zn-gjQ" id="vIT-sb-uNE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Bonds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TnY-7h-wRt">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="XPY-BK-111" kind="show" id="BMY-WQ-eqp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="sVv-fe-fIL" style="IBUITableViewCellStyleDefault" id="sbI-ny-VjH">
+                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sbI-ny-VjH" id="GXQ-FK-QXt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="ETFs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sVv-fe-fIL">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="07Q-n9-cSX" style="IBUITableViewCellStyleDefault" id="jDr-RR-otM">
+                                        <rect key="frame" x="0.0" y="158.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jDr-RR-otM" id="GeQ-ZD-IUv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Mutual Funds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="07Q-n9-cSX">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="nt6-Fv-By1" style="IBUITableViewCellStyleDefault" id="ggm-U8-VnE">
+                                        <rect key="frame" x="0.0" y="202" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ggm-U8-VnE" id="N5B-jQ-mMn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Transaction Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nt6-Fv-By1">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="USd-hK-3Vv" style="IBUITableViewCellStyleDefault" id="Ye0-64-e2N">
+                                        <rect key="frame" x="0.0" y="245.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ye0-64-e2N" id="bcR-9e-vPp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Strategy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="USd-hK-3Vv">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="1tj-1K-IYQ" id="BRM-hf-nrV"/>
+                            <outlet property="delegate" destination="1tj-1K-IYQ" id="BfV-UO-SN2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhn-1f-yKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1689.8550724637682" y="111.83035714285714"/>
+            <point key="canvasLocation" x="-1894" y="307"/>
         </scene>
         <!--Stock Controller-->
         <scene sceneID="5P5-hh-cXV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZJ-yD-aQh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IkR-fJ-SDS" userLabel="Stock Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="QrY-O4-b3a"/>
@@ -275,6 +324,7 @@
                         <segue destination="PZZ-9F-9tF" kind="relationship" relationship="rootViewController" id="vK4-UW-dl6"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZJ-yD-aQh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-781.15942028985512" y="120.53571428571428"/>
         </scene>
@@ -299,7 +349,7 @@
         <!--Bond Portfolio-->
         <scene sceneID="iwg-hA-Wuc">
             <objects>
-                <tableViewController id="kNk-Pz-scP" userLabel="Bond Portfolio" customClass="AssetTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kNk-Pz-scP" userLabel="Bond Portfolio" customClass="BondTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LCW-Mm-xx1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,6 +406,10 @@
                                     <outlet property="photoImageView" destination="NuN-T6-XMQ" id="dis-9G-XwV"/>
                                     <outlet property="pricePerShare" destination="z64-2c-ScE" id="Nmr-6R-yCp"/>
                                     <outlet property="value" destination="bOA-RM-Psk" id="uVJ-xs-3My"/>
+                                    <segue destination="Dqy-Fk-OVp" kind="show" identifier="ShowDetail" id="SzS-PV-Vex">
+                                        <segue key="commit" inheritsFrom="parent" id="TRs-yk-gHq"/>
+                                        <segue key="preview" inheritsFrom="commit" id="a6b-3g-DwW"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -365,17 +419,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bond Portfolio" id="94T-DB-Th7" userLabel="Bond Portfolio">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2cR-ng-bnl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2cR-ng-bnl">
+                            <connections>
+                                <segue destination="Zgc-Ko-lXX" kind="presentation" identifier="AddItem" id="fsv-m2-3GG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAe-Ob-qfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="848"/>
+            <point key="canvasLocation" x="129" y="877"/>
         </scene>
         <!--Bond Controller-->
         <scene sceneID="iL0-fL-kR4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VD0-cp-uXE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XPY-BK-111" userLabel="Bond Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lyz-rR-cgr"/>
@@ -388,16 +445,120 @@
                         <segue destination="kNk-Pz-scP" kind="relationship" relationship="rootViewController" id="tIQ-kR-8Hr"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VD0-cp-uXE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-781" y="848"/>
+        </scene>
+        <!--Bond Asset New-->
+        <scene sceneID="cvQ-d4-fCP">
+            <objects>
+                <viewController id="Dqy-Fk-OVp" userLabel="Bond Asset New" customClass="AssetViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jkm-N3-HBe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="J08-Kf-a2j">
+                                <rect key="frame" x="10" y="76" width="394" height="474"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ticker symbol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LcL-Df-mV3">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter number of shares" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HR8-Ed-ifk" userLabel="Number of Shares Text Field">
+                                        <rect key="frame" x="0.0" y="42" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How are you feeling?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SqR-Bt-eoO" userLabel="Mood Text Field">
+                                        <rect key="frame" x="0.0" y="84" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="1O3-7e-iKq">
+                                        <rect key="frame" x="23" y="126" width="348" height="348"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1O3-7e-iKq" secondAttribute="height" multiplier="1:1" id="67C-il-mI3"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="QMn-Nw-HHP" appends="YES" id="SB3-uy-x9J"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SqR-Bt-eoO" secondAttribute="trailing" id="Dvr-Sb-Wvn"/>
+                                    <constraint firstItem="SqR-Bt-eoO" firstAttribute="leading" secondItem="J08-Kf-a2j" secondAttribute="leading" id="EhE-ZM-VPC"/>
+                                    <constraint firstItem="HR8-Ed-ifk" firstAttribute="leading" secondItem="J08-Kf-a2j" secondAttribute="leading" id="Uwk-WX-aeF"/>
+                                    <constraint firstAttribute="trailing" secondItem="HR8-Ed-ifk" secondAttribute="trailing" id="Wr4-b6-5sa"/>
+                                    <constraint firstAttribute="trailing" secondItem="LcL-Df-mV3" secondAttribute="trailing" id="tbz-Ge-235"/>
+                                    <constraint firstAttribute="trailing" secondItem="1O3-7e-iKq" secondAttribute="trailing" constant="23" id="wZz-y8-ull"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="J08-Kf-a2j" firstAttribute="top" secondItem="IhI-AV-Aoh" secondAttribute="top" constant="20" id="EGG-Oy-24e"/>
+                            <constraint firstItem="IhI-AV-Aoh" firstAttribute="trailing" secondItem="J08-Kf-a2j" secondAttribute="trailing" constant="10" id="Gaq-Dx-gsS"/>
+                            <constraint firstItem="J08-Kf-a2j" firstAttribute="leading" secondItem="IhI-AV-Aoh" secondAttribute="leading" constant="10" id="sYK-EL-ZYl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IhI-AV-Aoh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title=" New Bond Asset" id="wsB-Ve-ldg" userLabel="New Asset">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5Uq-vI-xTK">
+                            <connections>
+                                <action selector="cancel:" destination="Dqy-Fk-OVp" id="w6B-Xz-JLc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Commit" id="NCR-V1-vOe">
+                            <connections>
+                                <segue destination="e8c-dd-Si7" kind="unwind" unwindAction="unwindToAssetListWithSender:" id="wzg-qR-PML"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="moodTextField" destination="SqR-Bt-eoO" id="pTP-2n-PGC"/>
+                        <outlet property="nameTextField" destination="LcL-Df-mV3" id="erL-r3-gPw"/>
+                        <outlet property="numberOfSharesTextField" destination="HR8-Ed-ifk" id="br9-q3-ycF"/>
+                        <outlet property="photoImageView" destination="1O3-7e-iKq" id="jhm-cO-uGa"/>
+                        <outlet property="saveButton" destination="NCR-V1-vOe" id="evn-kk-xqh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wa-MM-Tq2" sceneMemberID="firstResponder"/>
+                <exit id="e8c-dd-Si7" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="QMn-Nw-HHP">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="Dqy-Fk-OVp" id="Lc2-Wk-Nwg"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1958" y="877"/>
+        </scene>
+        <!--Bond Edit Controller-->
+        <scene sceneID="eqD-LD-nDk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zgc-Ko-lXX" userLabel="Bond Edit Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="SDF-Uy-Wvf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aHO-WK-t9a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dqy-Fk-OVp" kind="relationship" relationship="rootViewController" id="h1t-Tq-W3v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BaB-TJ-7lC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="496"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="490" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zud-JW-oxr"/>
-        <segue reference="1as-bD-WkU"/>
-        <segue reference="gFl-5x-Jxp"/>
+        <segue reference="SzS-PV-Vex"/>
+        <segue reference="NCd-Rc-127"/>
     </inferredMetricsTieBreakers>
 </document>
