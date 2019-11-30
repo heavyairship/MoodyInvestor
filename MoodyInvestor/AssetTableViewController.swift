@@ -19,7 +19,6 @@ class AssetTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        os_log("loading...", log: OSLog.default, type: .debug)
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         

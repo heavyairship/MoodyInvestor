@@ -268,6 +268,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="xfL-Ws-pGM" kind="show" id="3rI-Qr-9lB"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="nt6-Fv-By1" rowHeight="120" style="IBUITableViewCellStyleDefault" id="ggm-U8-VnE">
                                         <rect key="frame" x="0.0" y="508" width="414" height="120"/>
@@ -769,13 +772,221 @@
             </objects>
             <point key="canvasLocation" x="1958" y="978"/>
         </scene>
+        <!--Mutual Fund Controller-->
+        <scene sceneID="ykI-Xi-vXS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xfL-Ws-pGM" userLabel="Mutual Fund Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Uh6-xS-VQo"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1bX-Pd-W7E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="47p-eM-duf" kind="relationship" relationship="rootViewController" id="ZOc-na-DHg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O2s-dS-Ndf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-781" y="1663"/>
+        </scene>
+        <!--Mutual Fund Portfolio-->
+        <scene sceneID="5Ih-DJ-rMc">
+            <objects>
+                <tableViewController id="47p-eM-duf" userLabel="Mutual Fund Portfolio" customClass="MutualFundTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mqk-lI-Mx8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="uuL-VU-qPg">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetTableViewCell" rowHeight="123" id="Fzn-a8-ghV" customClass="AssetTableViewCell" customModule="MoodyInvestor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="123"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fzn-a8-ghV" id="UQX-oH-hps">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="kyM-mN-kVP">
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC7-lM-DjD">
+                                            <rect key="frame" x="126" y="6" width="252" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Shares Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WG-oX-mgM">
+                                            <rect key="frame" x="126" y="35" width="252" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price per Share Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecv-5V-T0u">
+                                            <rect key="frame" x="126" y="63" width="252" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-x2-dne">
+                                            <rect key="frame" x="126" y="92" width="252" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="gC7-lM-DjD" id="UgG-3B-g12"/>
+                                    <outlet property="numberOfSharesLabel" destination="5WG-oX-mgM" id="0ek-37-g2n"/>
+                                    <outlet property="photoImageView" destination="kyM-mN-kVP" id="bSV-sS-ChH"/>
+                                    <outlet property="pricePerShare" destination="Ecv-5V-T0u" id="3Vf-HO-xdF"/>
+                                    <outlet property="value" destination="21D-x2-dne" id="yJH-Jo-OTw"/>
+                                    <segue destination="9L5-hx-VWn" kind="show" identifier="ShowDetail" id="caM-JN-p4h">
+                                        <segue key="commit" inheritsFrom="parent" id="ssL-Oy-ASz"/>
+                                        <segue key="preview" inheritsFrom="commit" id="2oU-y7-pab"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="47p-eM-duf" id="ulv-hW-c0Q"/>
+                            <outlet property="delegate" destination="47p-eM-duf" id="VHg-1k-XjZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Mutual Fund Portfolio" id="vGj-EF-Ns3" userLabel="Bond Portfolio">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vk6-9p-pxf">
+                            <connections>
+                                <segue destination="f3Q-PW-Y6O" kind="presentation" identifier="AddItem" id="z2O-DK-gUS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v5U-iW-DoB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="1663"/>
+        </scene>
+        <!--Mutual Fund Edit Controller-->
+        <scene sceneID="3RF-ft-OGW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f3Q-PW-Y6O" userLabel="Mutual Fund Edit Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="lcU-FM-cqd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b3t-eA-fAz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9L5-hx-VWn" kind="relationship" relationship="rootViewController" id="EF4-5y-Zoa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LpG-jB-wys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="1357"/>
+        </scene>
+        <!--Mutual Fund Asset New-->
+        <scene sceneID="m0n-5N-tyc">
+            <objects>
+                <viewController id="9L5-hx-VWn" userLabel="Mutual Fund Asset New" customClass="AssetViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ed-D9-ayg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Hh-NC-tp1">
+                                <rect key="frame" x="10" y="76" width="394" height="474"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ticker symbol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bn-fY-t1O">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter number of shares" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYO-bv-Pwt" userLabel="Number of Shares Text Field">
+                                        <rect key="frame" x="0.0" y="42" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How are you feeling?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgn-sL-BpM" userLabel="Mood Text Field">
+                                        <rect key="frame" x="0.0" y="84" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2Hh-fs-SbK">
+                                        <rect key="frame" x="23" y="126" width="348" height="348"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="2Hh-fs-SbK" secondAttribute="height" multiplier="1:1" id="5X8-UL-L6b"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="sU3-3y-68r" appends="YES" id="tj6-bn-kLT"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9bn-fY-t1O" secondAttribute="trailing" id="Bx0-mF-Llm"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Hh-fs-SbK" secondAttribute="trailing" constant="23" id="HYx-9g-f3M"/>
+                                    <constraint firstItem="fgn-sL-BpM" firstAttribute="leading" secondItem="3Hh-NC-tp1" secondAttribute="leading" id="X3B-Lp-S9d"/>
+                                    <constraint firstAttribute="trailing" secondItem="fgn-sL-BpM" secondAttribute="trailing" id="aD6-YI-9jk"/>
+                                    <constraint firstAttribute="trailing" secondItem="rYO-bv-Pwt" secondAttribute="trailing" id="mS3-Rw-u2a"/>
+                                    <constraint firstItem="rYO-bv-Pwt" firstAttribute="leading" secondItem="3Hh-NC-tp1" secondAttribute="leading" id="ybE-4C-xBh"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3Hh-NC-tp1" firstAttribute="top" secondItem="nDp-fQ-inF" secondAttribute="top" constant="20" id="Amb-0g-Ztu"/>
+                            <constraint firstItem="3Hh-NC-tp1" firstAttribute="leading" secondItem="nDp-fQ-inF" secondAttribute="leading" constant="10" id="Dtb-rH-eC8"/>
+                            <constraint firstItem="nDp-fQ-inF" firstAttribute="trailing" secondItem="3Hh-NC-tp1" secondAttribute="trailing" constant="10" id="wdG-w5-rut"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nDp-fQ-inF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title=" New Mutual Fund Asset" id="3eL-Sc-ERu" userLabel="New Asset">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cx5-iU-j2N">
+                            <connections>
+                                <action selector="cancel:" destination="9L5-hx-VWn" id="g2W-66-ipe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Commit" id="W69-yr-PN5">
+                            <connections>
+                                <segue destination="YVv-g4-Sky" kind="unwind" unwindAction="unwindToAssetListWithSender:" id="jEf-rO-uey"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="moodTextField" destination="fgn-sL-BpM" id="cnr-4b-1JK"/>
+                        <outlet property="nameTextField" destination="9bn-fY-t1O" id="0Z1-Qp-NVg"/>
+                        <outlet property="numberOfSharesTextField" destination="rYO-bv-Pwt" id="BOU-gg-lZn"/>
+                        <outlet property="photoImageView" destination="2Hh-fs-SbK" id="vkO-Da-SQM"/>
+                        <outlet property="saveButton" destination="W69-yr-PN5" id="hCb-J4-kP5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yxW-u7-OJc" sceneMemberID="firstResponder"/>
+                <exit id="YVv-g4-Sky" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="sU3-3y-68r">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="9L5-hx-VWn" id="NcF-HF-gv0"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1958" y="1663"/>
+        </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="490" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="caM-JN-p4h"/>
         <segue reference="F68-gN-XHp"/>
         <segue reference="SzS-PV-Vex"/>
-        <segue reference="gFl-5x-Jxp"/>
+        <segue reference="PCG-wA-AXj"/>
     </inferredMetricsTieBreakers>
 </document>
