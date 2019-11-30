@@ -8,6 +8,10 @@
 import UIKit
 
 class MutualFundTableViewController: AssetTableViewController {
+    override func assetClass() -> String {
+        return "mutual fund"
+    }
+    
     override func archiveURL() -> URL {
         let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("mutual_funds")
         return archiveURL

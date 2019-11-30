@@ -124,9 +124,10 @@ class AssetTableViewController: UITableViewController {
     //MARK: Actions
     @IBAction func unwindToAssetList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AssetViewController, let asset = sourceViewController.asset {
-            
+            var oldAsset: Asset? = nil
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing asset.
+                oldAsset = assets[selectedIndexPath.row]
                 assets[selectedIndexPath.row] = asset
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
@@ -140,25 +141,65 @@ class AssetTableViewController: UITableViewController {
             saveAssets()
             
             // Add entry to transaction log.
-            addTransactLogEntry(asset: asset)
+            addTransactLogEntry(asset: asset, oldAsset: oldAsset)
         }
     }
 
+    func assetClass() -> String {
+        return "asset"
+    }
+    
     func archiveURL() -> URL {
         let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("assets")
         return archiveURL
     }
     
-    func transactLogURL() -> URL {
-        let transactLogURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("transact_log")
-        return transactLogURL
-
-    }
-    
     //MARK: Private Methods
     
-    private func addTransactLogEntry(asset: Asset) {
-        var transactLogEntry = [TransactLogEntry(assetName: asset.name)]
+    private func transactLogURL() -> URL {
+        let transactLogURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("transact_log")
+        return transactLogURL
+    }
+    
+    private func nowAsString() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    private func transactionTypeFor(asset: Asset, oldAsset: Asset?) -> String {
+        if oldAsset != nil {
+            if asset.numberOfShares == oldAsset!.numberOfShares {
+                return "hold"
+            } else if asset.numberOfShares > oldAsset!.numberOfShares {
+                return "buy"
+            } else {
+                return "sell"
+            }
+        } else {
+            return "buy"
+        }
+    }
+    
+    
+    private func addTransactLogEntry(asset: Asset, oldAsset: Asset?) {
+        // FixMe: This is super inefficient.
+        let savedTransactLog:[TransactLogEntry] = loadTransactLog() ?? [TransactLogEntry]()
+        let pricePerShare = pricePerShareFor(name: asset.name)
+        let shareChange = asset.numberOfShares - (oldAsset?.numberOfShares ?? 0)
+        var transactLogEntry = [TransactLogEntry(
+            date: nowAsString(),
+            transactionId: savedTransactLog.count,
+            assetName: asset.name,
+            assetClass: assetClass(),
+            transactionType: transactionTypeFor(asset: asset, oldAsset: oldAsset),
+            numberOfShares: asset.numberOfShares,
+            shareChange: shareChange,
+            pricePerShare: pricePerShare,
+            valueChange: pricePerShare*Float(shareChange),
+            mood: asset.mood)]
         if let savedTransactLog = loadTransactLog() {
             transactLogEntry = savedTransactLog + transactLogEntry;
         }
@@ -168,8 +209,16 @@ class AssetTableViewController: UITableViewController {
         } else {
             os_log("Failed to add entry to transaction log")
         }
-        for element in transactLogEntry {
-            print(element?.assetName ?? "<none>")
+        
+        for e in transactLogEntry {
+            if let entry = e {
+                print("Tid: \(entry.transactionId), ", terminator: "")
+                print("Date: \(entry.date), ", terminator: "")
+                print("Asset name: \(entry.assetName), ", terminator: "")
+                print("Asset class: \(entry.assetClass), ", terminator: "")
+                print("Trans type: \(entry.transactionType), ", terminator: "")
+                print("Share change: \(entry.shareChange)", terminator: "\n")
+            }
         }
     }
     

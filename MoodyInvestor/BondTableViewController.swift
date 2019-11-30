@@ -8,6 +8,10 @@
 import UIKit
 
 class BondTableViewController: AssetTableViewController {
+    override func assetClass() -> String {
+        return "bond"
+    }
+    
     override func archiveURL() -> URL {
         let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("bonds")
         return archiveURL

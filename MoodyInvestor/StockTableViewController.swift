@@ -8,6 +8,10 @@
 import UIKit
 
 class StockTableViewController: AssetTableViewController {
+    override func assetClass() -> String {
+        return "stock"
+    }
+    
     override func archiveURL() -> URL {
         let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("stocks")
         return archiveURL

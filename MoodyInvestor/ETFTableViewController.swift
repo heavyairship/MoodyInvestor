@@ -8,6 +8,10 @@
 import UIKit
 
 class ETFTableViewController: AssetTableViewController {
+    override func assetClass() -> String {
+        return "etf"
+    }
+    
     override func archiveURL() -> URL {
         let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("etfs")
         return archiveURL
