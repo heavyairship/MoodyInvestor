@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810ABC02239219CC00959170 /* ETFTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ABC01239219CC00959170 /* ETFTableViewController.swift */; };
 		811CA934235E99510042A501 /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CA933235E99510042A501 /* AssetTableViewCell.swift */; };
 		811CA936235E9D640042A501 /* AssetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CA935235E9D640042A501 /* AssetTableViewController.swift */; };
 		819E1FC623920363004EB955 /* StockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1FC523920363004EB955 /* StockTableViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810ABC01239219CC00959170 /* ETFTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFTableViewController.swift; sourceTree = "<group>"; };
 		811CA933235E99510042A501 /* AssetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
 		811CA935235E9D640042A501 /* AssetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewController.swift; sourceTree = "<group>"; };
 		819E1FC523920363004EB955 /* StockTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				81B41CD1235B8BE40058D460 /* Info.plist */,
 				819E1FC523920363004EB955 /* StockTableViewController.swift */,
 				819E1FC723920845004EB955 /* BondTableViewController.swift */,
+				810ABC01239219CC00959170 /* ETFTableViewController.swift */,
 			);
 			path = MoodyInvestor;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81B41CF6235E87490058D460 /* Asset.swift in Sources */,
+				810ABC02239219CC00959170 /* ETFTableViewController.swift in Sources */,
 				81B41CF4235CB9610058D460 /* RatingControl.swift in Sources */,
 				811CA936235E9D640042A501 /* AssetTableViewController.swift in Sources */,
 				811CA934235E99510042A501 /* AssetTableViewCell.swift in Sources */,

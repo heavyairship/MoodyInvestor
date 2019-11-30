@@ -247,6 +247,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="eSM-4F-nZr" kind="show" id="38d-tG-jpw"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="07Q-n9-cSX" rowHeight="120" style="IBUITableViewCellStyleDefault" id="jDr-RR-otM">
                                         <rect key="frame" x="0.0" y="388" width="414" height="120"/>
@@ -434,7 +437,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAe-Ob-qfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="265"/>
+            <point key="canvasLocation" x="129" y="236"/>
         </scene>
         <!--Bond Controller-->
         <scene sceneID="iL0-fL-kR4">
@@ -538,7 +541,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1958" y="265"/>
+            <point key="canvasLocation" x="1958" y="236"/>
         </scene>
         <!--Bond Edit Controller-->
         <scene sceneID="eqD-LD-nDk">
@@ -559,12 +562,220 @@
             </objects>
             <point key="canvasLocation" x="1051" y="-116"/>
         </scene>
+        <!--ETF Controller-->
+        <scene sceneID="zUG-Bp-LXQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eSM-4F-nZr" userLabel="ETF Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="pzb-mx-nno"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MBR-BN-dN3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vj7-b5-Wpi" kind="relationship" relationship="rootViewController" id="Q6Y-3U-DnV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wyp-8G-7Jn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-781" y="979"/>
+        </scene>
+        <!--ETF Portfolio-->
+        <scene sceneID="DNm-7C-E4e">
+            <objects>
+                <tableViewController id="Vj7-b5-Wpi" userLabel="ETF Portfolio" customClass="ETFTableViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WYe-1T-F0x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gxL-Ge-Gvu">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetTableViewCell" rowHeight="123" id="mPP-Me-GOg" customClass="AssetTableViewCell" customModule="MoodyInvestor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="123"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mPP-Me-GOg" id="e6M-Sl-9LE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="b68-ya-jd8">
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-ZW-3Ti">
+                                            <rect key="frame" x="126" y="6" width="252" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Shares Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neU-gw-26T">
+                                            <rect key="frame" x="126" y="35" width="252" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price per Share Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1m-65-Klf">
+                                            <rect key="frame" x="126" y="63" width="252" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phU-ZA-mwr">
+                                            <rect key="frame" x="126" y="92" width="252" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="uvb-ZW-3Ti" id="pNK-qQ-GcP"/>
+                                    <outlet property="numberOfSharesLabel" destination="neU-gw-26T" id="EgJ-sR-bxN"/>
+                                    <outlet property="photoImageView" destination="b68-ya-jd8" id="w90-d2-F0x"/>
+                                    <outlet property="pricePerShare" destination="t1m-65-Klf" id="L4j-J7-qqo"/>
+                                    <outlet property="value" destination="phU-ZA-mwr" id="ayr-5Z-JP0"/>
+                                    <segue destination="mzi-Hk-cUc" kind="show" identifier="ShowDetail" id="F68-gN-XHp">
+                                        <segue key="commit" inheritsFrom="parent" id="T2U-AD-8UM"/>
+                                        <segue key="preview" inheritsFrom="commit" id="OD5-kn-ryU"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Vj7-b5-Wpi" id="Ec7-W4-hlu"/>
+                            <outlet property="delegate" destination="Vj7-b5-Wpi" id="n5I-2T-fg6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="ETF Portfolio" id="AZI-hn-Df9" userLabel="Bond Portfolio">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hzJ-w6-JbV">
+                            <connections>
+                                <segue destination="k60-09-2WM" kind="presentation" identifier="AddItem" id="sCq-LA-3yT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="roQ-vV-MRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="978"/>
+        </scene>
+        <!--ETF Edit Controller-->
+        <scene sceneID="i2u-oz-mC0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k60-09-2WM" userLabel="ETF Edit Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="t1G-u4-5gE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bt8-58-QnU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mzi-Hk-cUc" kind="relationship" relationship="rootViewController" id="cgP-U0-tfr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ALA-rg-axa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="627"/>
+        </scene>
+        <!--ETF Asset New-->
+        <scene sceneID="Kxi-vx-Djt">
+            <objects>
+                <viewController id="mzi-Hk-cUc" userLabel="ETF Asset New" customClass="AssetViewController" customModule="MoodyInvestor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4vW-BW-2Fe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mrA-Uv-Pjg">
+                                <rect key="frame" x="10" y="76" width="394" height="474"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ticker symbol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tDQ-N3-xrA">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter number of shares" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-dq-kQI" userLabel="Number of Shares Text Field">
+                                        <rect key="frame" x="0.0" y="42" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How are you feeling?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A1a-J3-YJD" userLabel="Mood Text Field">
+                                        <rect key="frame" x="0.0" y="84" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="SqY-4l-JZb">
+                                        <rect key="frame" x="23" y="126" width="348" height="348"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SqY-4l-JZb" secondAttribute="height" multiplier="1:1" id="5Z3-Nx-J5F"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="geG-nS-W8W" appends="YES" id="Wqk-4f-p0U"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SqY-4l-JZb" secondAttribute="trailing" constant="23" id="1xt-n6-qdj"/>
+                                    <constraint firstItem="A1a-J3-YJD" firstAttribute="leading" secondItem="mrA-Uv-Pjg" secondAttribute="leading" id="KzV-Mp-AeL"/>
+                                    <constraint firstAttribute="trailing" secondItem="A1a-J3-YJD" secondAttribute="trailing" id="NAS-ma-v8a"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zpz-dq-kQI" secondAttribute="trailing" id="Pye-4w-L41"/>
+                                    <constraint firstItem="Zpz-dq-kQI" firstAttribute="leading" secondItem="mrA-Uv-Pjg" secondAttribute="leading" id="hUe-7q-DOe"/>
+                                    <constraint firstAttribute="trailing" secondItem="tDQ-N3-xrA" secondAttribute="trailing" id="uTR-HJ-h20"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AIL-KL-Msl" firstAttribute="trailing" secondItem="mrA-Uv-Pjg" secondAttribute="trailing" constant="10" id="H0O-Xr-THd"/>
+                            <constraint firstItem="mrA-Uv-Pjg" firstAttribute="top" secondItem="AIL-KL-Msl" secondAttribute="top" constant="20" id="mBx-4l-TxW"/>
+                            <constraint firstItem="mrA-Uv-Pjg" firstAttribute="leading" secondItem="AIL-KL-Msl" secondAttribute="leading" constant="10" id="mbj-bc-0M5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AIL-KL-Msl"/>
+                    </view>
+                    <navigationItem key="navigationItem" title=" New ETF Asset" id="TU4-qD-jaa" userLabel="New Asset">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GkL-lA-AIy">
+                            <connections>
+                                <action selector="cancel:" destination="mzi-Hk-cUc" id="LxN-nQ-PX2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Commit" id="80t-vD-Stl">
+                            <connections>
+                                <segue destination="HPl-yU-96q" kind="unwind" unwindAction="unwindToAssetListWithSender:" id="SA6-m5-af3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="moodTextField" destination="A1a-J3-YJD" id="Ecy-ci-Apy"/>
+                        <outlet property="nameTextField" destination="tDQ-N3-xrA" id="UBt-my-QOj"/>
+                        <outlet property="numberOfSharesTextField" destination="Zpz-dq-kQI" id="T7t-Tr-1nk"/>
+                        <outlet property="photoImageView" destination="SqY-4l-JZb" id="mO4-97-EyL"/>
+                        <outlet property="saveButton" destination="80t-vD-Stl" id="7LE-jT-kdA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rdz-4J-y5m" sceneMemberID="firstResponder"/>
+                <exit id="HPl-yU-96q" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="geG-nS-W8W">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="mzi-Hk-cUc" id="UhB-zb-Re3"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1958" y="978"/>
+        </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="490" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h1t-Tq-W3v"/>
-        <segue reference="PCG-wA-AXj"/>
+        <segue reference="F68-gN-XHp"/>
+        <segue reference="SzS-PV-Vex"/>
+        <segue reference="gFl-5x-Jxp"/>
     </inferredMetricsTieBreakers>
 </document>

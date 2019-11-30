@@ -1,5 +1,5 @@
 //
-//  BondTableViewController.swift
+//  ETFTableViewController.swift
 //  MoodyInvestor
 //
 //  Created by Andrew Fichman on 11/29/19.
@@ -7,9 +7,9 @@
 //
 import UIKit
 
-class BondTableViewController: AssetTableViewController {
+class ETFTableViewController: AssetTableViewController {
     override func archiveURL() -> URL {
-        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("bonds")
+        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("etfs")
         return archiveURL
     }
 }
