@@ -132,13 +132,15 @@ class AssetTableViewController: UITableViewController {
             } else {
                 // Add a new asset.
                 let newIndexPath = IndexPath(row: assets.count, section: 0)
-                
                 assets.append(asset)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             
             // Save the assets.
             saveAssets()
+            
+            // Add entry to transaction log.
+            addTransactLogEntry(asset: asset)
         }
     }
 
@@ -147,7 +149,33 @@ class AssetTableViewController: UITableViewController {
         return archiveURL
     }
     
+    func transactLogURL() -> URL {
+        let transactLogURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("transact_log")
+        return transactLogURL
+
+    }
+    
     //MARK: Private Methods
+    
+    private func addTransactLogEntry(asset: Asset) {
+        var transactLogEntry = [TransactLogEntry(assetName: asset.name)]
+        if let savedTransactLog = loadTransactLog() {
+            transactLogEntry = savedTransactLog + transactLogEntry;
+        }
+        let isSuccessfulTransactLogEntry = NSKeyedArchiver.archiveRootObject(transactLogEntry, toFile: transactLogURL().path)
+        if isSuccessfulTransactLogEntry {
+            os_log("Transaction log entry added successfully")
+        } else {
+            os_log("Failed to add entry to transaction log")
+        }
+        for element in transactLogEntry {
+            print(element?.assetName ?? "<none>")
+        }
+    }
+    
+    private func loadTransactLog() -> [TransactLogEntry]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: transactLogURL().path) as? [TransactLogEntry]
+    }
     
     private func saveAssets() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(assets, toFile: archiveURL().path)
