@@ -1,5 +1,5 @@
 //
-//  TransactLogEntry.swift
+//  TransactionLogEntry.swift
 //  MoodyInvestor
 //
 //  Created by Andrew Fichman on 11/29/19.
@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class TransactLogEntry: NSObject, NSCoding {
+class TransactionLogEntry: NSObject, NSCoding {
     
     //MARK: Properties
     var date: String

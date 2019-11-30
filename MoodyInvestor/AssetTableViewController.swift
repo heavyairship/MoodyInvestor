@@ -141,7 +141,7 @@ class AssetTableViewController: UITableViewController {
             saveAssets()
             
             // Add entry to transaction log.
-            addTransactLogEntry(asset: asset, oldAsset: oldAsset)
+            addTransactionLogEntry(asset: asset, oldAsset: oldAsset)
         }
     }
 
@@ -155,11 +155,6 @@ class AssetTableViewController: UITableViewController {
     }
     
     //MARK: Private Methods
-    
-    private func transactLogURL() -> URL {
-        let transactLogURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("transact_log")
-        return transactLogURL
-    }
     
     private func nowAsString() -> String {
         let date = Date()
@@ -184,14 +179,14 @@ class AssetTableViewController: UITableViewController {
     }
     
     
-    private func addTransactLogEntry(asset: Asset, oldAsset: Asset?) {
+    private func addTransactionLogEntry(asset: Asset, oldAsset: Asset?) {
         // FixMe: This is super inefficient.
-        let savedTransactLog:[TransactLogEntry] = loadTransactLog() ?? [TransactLogEntry]()
+        let savedTransactionLog:[TransactionLogEntry] = TransactionLogService.loadTransactionLog() ?? [TransactionLogEntry]()
         let pricePerShare = pricePerShareFor(name: asset.name)
         let shareChange = asset.numberOfShares - (oldAsset?.numberOfShares ?? 0)
-        var transactLogEntry = [TransactLogEntry(
+        let transactionLog = savedTransactionLog + [TransactionLogEntry(
             date: nowAsString(),
-            transactionId: savedTransactLog.count,
+            transactionId: savedTransactionLog.count,
             assetName: asset.name,
             assetClass: assetClass(),
             transactionType: transactionTypeFor(asset: asset, oldAsset: oldAsset),
@@ -200,31 +195,9 @@ class AssetTableViewController: UITableViewController {
             pricePerShare: pricePerShare,
             valueChange: pricePerShare*Float(shareChange),
             mood: asset.mood)]
-        if let savedTransactLog = loadTransactLog() {
-            transactLogEntry = savedTransactLog + transactLogEntry;
-        }
-        let isSuccessfulTransactLogEntry = NSKeyedArchiver.archiveRootObject(transactLogEntry, toFile: transactLogURL().path)
-        if isSuccessfulTransactLogEntry {
-            os_log("Transaction log entry added successfully")
-        } else {
-            os_log("Failed to add entry to transaction log")
-        }
-        
-        for e in transactLogEntry {
-            if let entry = e {
-                print("Tid: \(entry.transactionId), ", terminator: "")
-                print("Date: \(entry.date), ", terminator: "")
-                print("Asset name: \(entry.assetName), ", terminator: "")
-                print("Asset class: \(entry.assetClass), ", terminator: "")
-                print("Trans type: \(entry.transactionType), ", terminator: "")
-                print("Share change: \(entry.shareChange)", terminator: "\n")
-            }
-        }
+        TransactionLogService.saveTransactionLog(transactionLog: transactionLog)
     }
     
-    private func loadTransactLog() -> [TransactLogEntry]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: transactLogURL().path) as? [TransactLogEntry]
-    }
     
     private func saveAssets() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(assets, toFile: archiveURL().path)
