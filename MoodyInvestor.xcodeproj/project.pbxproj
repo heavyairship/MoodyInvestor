@@ -27,6 +27,7 @@
 		81B41CE6235B8BE40058D460 /* MoodyInvestorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CE5235B8BE40058D460 /* MoodyInvestorUITests.swift */; };
 		81B41CF4235CB9610058D460 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CF3235CB9610058D460 /* RatingControl.swift */; };
 		81B41CF6235E87490058D460 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CF5235E87490058D460 /* Asset.swift */; };
+		81C9557D239396CC006C2892 /* StrategyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9557C239396CC006C2892 /* StrategyFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		81B41CE7235B8BE40058D460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B41CF3235CB9610058D460 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		81B41CF5235E87490058D460 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		81C9557C239396CC006C2892 /* StrategyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyFormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				810ABC072392490000959170 /* TransactionLogViewController.swift */,
 				810ABC092392495A00959170 /* TransactionLogViewCell.swift */,
 				810ABC0B239250A800959170 /* TransactionLogService.swift */,
+				81C9557C239396CC006C2892 /* StrategyFormViewController.swift */,
 			);
 			path = MoodyInvestor;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				81B41CF6235E87490058D460 /* Asset.swift in Sources */,
 				810ABC02239219CC00959170 /* ETFTableViewController.swift in Sources */,
+				81C9557D239396CC006C2892 /* StrategyFormViewController.swift in Sources */,
 				81B41CF4235CB9610058D460 /* RatingControl.swift in Sources */,
 				811CA936235E9D640042A501 /* AssetTableViewController.swift in Sources */,
 				811CA934235E99510042A501 /* AssetTableViewCell.swift in Sources */,
