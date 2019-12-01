@@ -43,4 +43,8 @@ class TransactionLogService {
     static func loadTransactionLog() -> [TransactionLogEntry]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: TransactionLogURL().path) as? [TransactionLogEntry]
     }
+    
+    static func clearTransactionLog() {
+        saveTransactionLog(transactionLog: [TransactionLogEntry]())
+    }
 }

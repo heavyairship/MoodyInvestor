@@ -1040,7 +1040,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISR-5z-c8c" userLabel="Date Label">
-                                            <rect key="frame" x="12" y="11" width="177" height="21"/>
+                                            <rect key="frame" x="12" y="11" width="144" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1054,14 +1054,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dl0-gd-rkK" userLabel="Share Change Label">
-                                            <rect key="frame" x="267" y="11" width="68" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qy-W9-ygO">
-                                            <rect key="frame" x="343" y="11" width="53" height="21"/>
+                                            <rect key="frame" x="267" y="11" width="127" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1072,7 +1065,6 @@
                                 <connections>
                                     <outlet property="assetName" destination="03D-xE-Hj6" id="lkE-d0-c4I"/>
                                     <outlet property="date" destination="ISR-5z-c8c" id="Y3O-Vt-CDu"/>
-                                    <outlet property="mood" destination="9Qy-W9-ygO" id="ztX-cd-bga"/>
                                     <outlet property="shareChange" destination="Dl0-gd-rkK" id="Lfz-b6-5gv"/>
                                 </connections>
                             </tableViewCell>
