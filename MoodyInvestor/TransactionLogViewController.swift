@@ -65,7 +65,7 @@ class TransactionLogViewController: UITableViewController {
             displayP3Red: TransactionLogViewController.randomCGFloat(),
             green: TransactionLogViewController.randomCGFloat(),
             blue: TransactionLogViewController.randomCGFloat(),
-            alpha: TransactionLogViewController.randomCGFloat())
+            alpha: TransactionLogViewController.randomCGFloat()*0.5)
         return cell
     }
     
