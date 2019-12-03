@@ -66,6 +66,42 @@ class TransactionLogViewController: UITableViewController {
         return CGFloat(Float.random(in: 0 ..< 1))
     }
     
+    func hexToUIColor (hex:Int) -> UIColor {
+        return UIColor(
+            red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((hex & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(hex & 0x0000FF) / 255.0,
+            alpha: CGFloat(0.5)
+        )
+    }
+    
+    func hexForMood(mood: String) -> Int {
+        switch mood.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
+        case "alert": return 0xdce775
+        case "excited": return 0xaed581
+        case "elated": return 0x81c784
+        case "happy": return 0x4db6ac
+        case "content": return  0x4dd0e1
+        case "serene": return 0x4fc3f7
+        case "relaxed": return 0x64b5f6
+        case "calm": return 0x7986cb
+        case "fatigued": return 0x9575cd
+        case "lethargic": return 0xba68c8
+        case "depressed": return 0xf06292
+        case "sad": return 0xe57373
+        case "angry": return 0xff8a65
+        case "upset": return 0xffb74d
+        case "nervous": return 0xffd54f
+        case "tense": return 0xfff176
+        default:
+            return 0xd3d3d3
+        }
+    }
+
+    func colorForMood(mood: String) -> UIColor {
+        return hexToUIColor(hex: hexForMood(mood: mood))
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "TransactionLogViewCell"
@@ -76,64 +112,8 @@ class TransactionLogViewController: UITableViewController {
         let transactionLogEntry = transactionLog[indexPath.row]
         cell.date.text = transactionLogEntry.date
         cell.assetName.text = transactionLogEntry.assetName.uppercased()
-        cell.shareChange.text = (transactionLogEntry.transactionType == "sell" ? "" : "+") + String(transactionLogEntry.shareChange) + " share(s)"
-        //FixMe: use mood-based colors, not random ones!
-        cell.backgroundColor = UIColor(
-            displayP3Red: TransactionLogViewController.randomCGFloat(),
-            green: TransactionLogViewController.randomCGFloat(),
-            blue: TransactionLogViewController.randomCGFloat(),
-            alpha: TransactionLogViewController.randomCGFloat()*0.5)
+        cell.shareChange.text = (transactionLogEntry.transactionType == "sell" ? "" : "+") + String(transactionLogEntry.shareChange)
+        cell.backgroundColor = colorForMood(mood: transactionLogEntry.mood)
         return cell
     }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    // FixMe: implement!!!
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        super.prepare(for: segue, sender: sender)
-        switch(segue.identifier ?? "") {
-        case "ShowDetail":
-            guard let assetDetailViewController = segue.destination as? AssetViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
-            guard let selectedAssetCell = sender as? AssetTableViewCell else {
-                fatalError("Unexpected sender: \(String(describing: sender))")
-            }
-            guard let indexPath = tableView.indexPath(for: selectedAssetCell) else {
-                fatalError("The selected cell is not being displayed by the table")
-            }
-            let selectedAsset = assets[indexPath.row]
-            assetDetailViewController.asset = selectedAsset
-        default:
-            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
-        }
-    }
-    
-    
-    //MARK: Actions
-    @IBAction func unwindToAssetList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? AssetViewController, let asset = sourceViewController.asset {
-            var oldAsset: Asset? = nil
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing asset.
-                oldAsset = assets[selectedIndexPath.row]
-                assets[selectedIndexPath.row] = asset
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            } else {
-                // Add a new asset.
-                let newIndexPath = IndexPath(row: assets.count, section: 0)
-                assets.append(asset)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
-            
-            // Save the assets.
-            saveAssets()
-            
-            // Add entry to transaction log.
-            addTransactLogEntry(asset: asset, oldAsset: oldAsset)
-        }
-    }*/
 }

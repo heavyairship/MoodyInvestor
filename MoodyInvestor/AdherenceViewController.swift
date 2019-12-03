@@ -18,4 +18,6 @@ class AdherenceViewController: UIViewController {
         super.viewDidLoad()
         // Handle the text field’s user input through delegate callbacks.
     }
+    
+    
 }

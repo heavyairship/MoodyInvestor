@@ -13,7 +13,6 @@ class TransactionLogViewCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var assetName: UILabel!
     @IBOutlet weak var shareChange: UILabel!
-    @IBOutlet weak var mood: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +21,6 @@ class TransactionLogViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 }

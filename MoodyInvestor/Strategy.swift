@@ -10,6 +10,9 @@ import UIKit
 import os.log
 
 class Strategy: NSObject, NSCoding {
+    
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    
     var stockAlloc: Float
     var bondAlloc: Float
     var mutualFundAlloc: Float
@@ -84,4 +87,24 @@ class Strategy: NSObject, NSCoding {
             withdrawalAmount: withdrawalAmount,
             withdrawalFrequency: withdrawalFrequency)
     }
+    
+    // Serialization
+     
+     static func StrategyURL() -> URL {
+         let strategyURL = DocumentsDirectory.appendingPathComponent("strategy")
+         return strategyURL
+     }
+     
+     static func SaveStrategy(strategy: Strategy?) {
+         let isSuccessful = NSKeyedArchiver.archiveRootObject(strategy, toFile: StrategyURL().path)
+         if isSuccessful {
+             os_log("Saved strategy successfully")
+         } else {
+             os_log("Failed to save strategy")
+         }
+     }
+     
+     static func LoadStrategy() -> Strategy? {
+         return NSKeyedUnarchiver.unarchiveObject(withFile: StrategyURL().path) as? Strategy
+     }
 }

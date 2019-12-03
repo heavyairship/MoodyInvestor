@@ -14,8 +14,6 @@ class StrategyFormViewController:
     UITextFieldDelegate,
     UINavigationControllerDelegate {
     
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    
     // Form data
     
     @IBOutlet weak var stockAlloc: UITextField!
@@ -29,7 +27,7 @@ class StrategyFormViewController:
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let strategy = StrategyFormViewController.LoadStrategy() else {
+        guard let strategy = Strategy.LoadStrategy() else {
             return
         }
         stockAlloc.text = String(strategy.stockAlloc)
@@ -72,31 +70,11 @@ class StrategyFormViewController:
             fundingFrequency: fundingFrequency.text ?? "",
             withdrawalAmount: textFieldToFloat(field: withdrawalAmount),
             withdrawalFrequency: withdrawalFrequency.text ?? "")
-        StrategyFormViewController.SaveStrategy(strategy: strategy)
+        Strategy.SaveStrategy(strategy: strategy)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    // Serialization
-    
-    static func StrategyURL() -> URL {
-        let strategyURL = DocumentsDirectory.appendingPathComponent("strategy")
-        return strategyURL
-    }
-    
-    static func SaveStrategy(strategy: Strategy?) {
-        let isSuccessful = NSKeyedArchiver.archiveRootObject(strategy, toFile: StrategyURL().path)
-        if isSuccessful {
-            os_log("Saved strategy successfully")
-        } else {
-            os_log("Failed to save strategy")
-        }
-    }
-    
-    static func LoadStrategy() -> Strategy? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: StrategyURL().path) as? Strategy
     }
 }
