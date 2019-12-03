@@ -86,8 +86,8 @@ class AdherenceViewController: UIViewController {
             scoreLabel.textColor = UIColor.black
         } else {
             scoreLabel.text = String(Int(score * 100.0))
-            let red = CGFloat(1.0 - score)/1.5
-            let green = CGFloat(score)/1.5
+            let red = CGFloat(1.0 - score)/1.2
+            let green = CGFloat(score)/1.2
             let blue = CGFloat(0)
             scoreLabel.textColor = UIColor(red: red, green: green, blue: blue, alpha: 0.5)
         }
