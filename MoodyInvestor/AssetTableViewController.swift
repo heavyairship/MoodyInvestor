@@ -19,8 +19,6 @@ class AssetTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved assets, otherwise load sample data.
         if let savedAssets = loadAssets() {
@@ -57,24 +55,6 @@ class AssetTableViewController: UITableViewController {
         cell.value.text = String(format: "Total value: $%.2f", value)
         cell.value.textColor = UIColor(red: 0.0, green: 100/256, blue: 0.0, alpha: 1.0)
         return cell
-    }
-
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            assets.remove(at: indexPath.row)
-            saveAssets()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
     }
 
     /*
@@ -181,7 +161,7 @@ class AssetTableViewController: UITableViewController {
     
     private func addTransactionLogEntry(asset: Asset, oldAsset: Asset?) {
         // FixMe: This is super inefficient.
-        let savedTransactionLog:[TransactionLogEntry] = TransactionLogService.loadTransactionLog() ?? [TransactionLogEntry]()
+        let savedTransactionLog:[TransactionLogEntry] = TransactionLogService.LoadTransactionLog() ?? [TransactionLogEntry]()
         let pricePerShare = pricePerShareFor(name: asset.name)
         let shareChange = asset.numberOfShares - (oldAsset?.numberOfShares ?? 0)
         let transactionLog = savedTransactionLog + [TransactionLogEntry(
@@ -195,7 +175,7 @@ class AssetTableViewController: UITableViewController {
             pricePerShare: pricePerShare,
             valueChange: pricePerShare*Float(shareChange),
             mood: asset.mood)]
-        TransactionLogService.saveTransactionLog(transactionLog: transactionLog)
+        TransactionLogService.SaveTransactionLog(transactionLog: transactionLog)
     }
     
     

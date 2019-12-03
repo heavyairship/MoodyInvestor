@@ -17,13 +17,30 @@ class TransactionLogViewController: UITableViewController {
 
     //MARK: Properties
     
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     var transactionLog = [TransactionLogEntry]()
     
     //MARK: Functions
     
+    func getAllIndexPaths() -> [IndexPath] {
+        var indexPaths: [IndexPath] = []
+
+        // Assuming that tableView is your self.tableView defined somewhere
+        for i in 0..<tableView.numberOfSections {
+            for j in 0..<tableView.numberOfRows(inSection: i) {
+                indexPaths.append(IndexPath(row: j, section: i))
+            }
+        }
+        return indexPaths
+    }
+    
     @objc func clearAllClicked(sender: UIBarButtonItem) {
-        TransactionLogService.clearTransactionLog()
-        self.viewDidLoad()
+        TransactionLogService.ClearTransactionLog()
+        transactionLog = []
+        tableView.deleteRows(at: getAllIndexPaths(), with: .automatic)
     }
     
     override func viewDidLoad() {
@@ -33,7 +50,7 @@ class TransactionLogViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = clearAllButton
         
         // Load the transaction log.
-        if let transactionLog = TransactionLogService.loadTransactionLog() {
+        if let transactionLog = TransactionLogService.LoadTransactionLog() {
             self.transactionLog = transactionLog.reversed()
         }
     }

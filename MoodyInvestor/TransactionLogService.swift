@@ -21,7 +21,7 @@ class TransactionLogService {
         return transactionLogURL
     }
     
-    static func saveTransactionLog(transactionLog: [TransactionLogEntry?]) {
+    static func SaveTransactionLog(transactionLog: [TransactionLogEntry?]) {
         let isSuccessfulTransactionLogEntry = NSKeyedArchiver.archiveRootObject(transactionLog, toFile: TransactionLogURL().path)
         if isSuccessfulTransactionLogEntry {
             os_log("Transaction log entry added successfully")
@@ -40,11 +40,11 @@ class TransactionLogService {
         }
     }
        
-    static func loadTransactionLog() -> [TransactionLogEntry]? {
+    static func LoadTransactionLog() -> [TransactionLogEntry]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: TransactionLogURL().path) as? [TransactionLogEntry]
     }
     
-    static func clearTransactionLog() {
-        saveTransactionLog(transactionLog: [TransactionLogEntry]())
+    static func ClearTransactionLog() {
+        SaveTransactionLog(transactionLog: [TransactionLogEntry]())
     }
 }

@@ -8,6 +8,11 @@
 import UIKit
 
 class ETFTableViewController: AssetTableViewController {
+    
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func assetClass() -> String {
         return "etf"
     }
