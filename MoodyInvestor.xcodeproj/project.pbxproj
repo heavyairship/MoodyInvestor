@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810ABC02239219CC00959170 /* ETFTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ABC01239219CC00959170 /* ETFTableViewController.swift */; };
+		810ABC0423921E1D00959170 /* MutualFundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ABC0323921E1D00959170 /* MutualFundTableViewController.swift */; };
+		810ABC06239220D700959170 /* TransactionLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ABC05239220D700959170 /* TransactionLogEntry.swift */; };
+		810ABC082392490000959170 /* TransactionLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ABC072392490000959170 /* TransactionLogViewController.swift */; };
+		810ABC0A2392495A00959170 /* TransactionLogViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ABC092392495A00959170 /* TransactionLogViewCell.swift */; };
+		810ABC0C239250A800959170 /* TransactionLogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810ABC0B239250A800959170 /* TransactionLogService.swift */; };
 		811CA934235E99510042A501 /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CA933235E99510042A501 /* AssetTableViewCell.swift */; };
 		811CA936235E9D640042A501 /* AssetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CA935235E9D640042A501 /* AssetTableViewController.swift */; };
+		819E1FC623920363004EB955 /* StockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1FC523920363004EB955 /* StockTableViewController.swift */; };
+		819E1FC823920845004EB955 /* BondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1FC723920845004EB955 /* BondTableViewController.swift */; };
 		81B41CC4235B8BE00058D460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CC3235B8BE00058D460 /* AppDelegate.swift */; };
 		81B41CC6235B8BE00058D460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CC5235B8BE00058D460 /* SceneDelegate.swift */; };
 		81B41CC8235B8BE00058D460 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CC7235B8BE00058D460 /* AssetViewController.swift */; };
@@ -19,6 +27,10 @@
 		81B41CE6235B8BE40058D460 /* MoodyInvestorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CE5235B8BE40058D460 /* MoodyInvestorUITests.swift */; };
 		81B41CF4235CB9610058D460 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CF3235CB9610058D460 /* RatingControl.swift */; };
 		81B41CF6235E87490058D460 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B41CF5235E87490058D460 /* Asset.swift */; };
+		81C9557D239396CC006C2892 /* StrategyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9557C239396CC006C2892 /* StrategyFormViewController.swift */; };
+		81C9557F2395FE06006C2892 /* AdherenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9557E2395FE06006C2892 /* AdherenceViewController.swift */; };
+		81C9558123960956006C2892 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9558023960956006C2892 /* Strategy.swift */; };
+		81C955832396432E006C2892 /* AssetPriceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C955822396432E006C2892 /* AssetPriceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810ABC01239219CC00959170 /* ETFTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFTableViewController.swift; sourceTree = "<group>"; };
+		810ABC0323921E1D00959170 /* MutualFundTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutualFundTableViewController.swift; sourceTree = "<group>"; };
+		810ABC05239220D700959170 /* TransactionLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLogEntry.swift; sourceTree = "<group>"; };
+		810ABC072392490000959170 /* TransactionLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLogViewController.swift; sourceTree = "<group>"; };
+		810ABC092392495A00959170 /* TransactionLogViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLogViewCell.swift; sourceTree = "<group>"; };
+		810ABC0B239250A800959170 /* TransactionLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLogService.swift; sourceTree = "<group>"; };
 		811CA933235E99510042A501 /* AssetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
 		811CA935235E9D640042A501 /* AssetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewController.swift; sourceTree = "<group>"; };
+		819E1FC523920363004EB955 /* StockTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewController.swift; sourceTree = "<group>"; };
+		819E1FC723920845004EB955 /* BondTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondTableViewController.swift; sourceTree = "<group>"; };
 		81B41CC0235B8BE00058D460 /* MoodyInvestor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodyInvestor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B41CC3235B8BE00058D460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81B41CC5235B8BE00058D460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +77,10 @@
 		81B41CE7235B8BE40058D460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B41CF3235CB9610058D460 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		81B41CF5235E87490058D460 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		81C9557C239396CC006C2892 /* StrategyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyFormViewController.swift; sourceTree = "<group>"; };
+		81C9557E2395FE06006C2892 /* AdherenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdherenceViewController.swift; sourceTree = "<group>"; };
+		81C9558023960956006C2892 /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		81C955822396432E006C2892 /* AssetPriceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPriceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +135,7 @@
 				811CA933235E99510042A501 /* AssetTableViewCell.swift */,
 				81B41CF3235CB9610058D460 /* RatingControl.swift */,
 				81B41CC5235B8BE00058D460 /* SceneDelegate.swift */,
+				81C955822396432E006C2892 /* AssetPriceService.swift */,
 				81B41CF5235E87490058D460 /* Asset.swift */,
 				81B41CC7235B8BE00058D460 /* AssetViewController.swift */,
 				811CA935235E9D640042A501 /* AssetTableViewController.swift */,
@@ -118,6 +143,17 @@
 				81B41CCC235B8BE40058D460 /* Assets.xcassets */,
 				81B41CCE235B8BE40058D460 /* LaunchScreen.storyboard */,
 				81B41CD1235B8BE40058D460 /* Info.plist */,
+				819E1FC523920363004EB955 /* StockTableViewController.swift */,
+				819E1FC723920845004EB955 /* BondTableViewController.swift */,
+				810ABC01239219CC00959170 /* ETFTableViewController.swift */,
+				810ABC0323921E1D00959170 /* MutualFundTableViewController.swift */,
+				810ABC05239220D700959170 /* TransactionLogEntry.swift */,
+				810ABC072392490000959170 /* TransactionLogViewController.swift */,
+				810ABC092392495A00959170 /* TransactionLogViewCell.swift */,
+				810ABC0B239250A800959170 /* TransactionLogService.swift */,
+				81C9558023960956006C2892 /* Strategy.swift */,
+				81C9557C239396CC006C2892 /* StrategyFormViewController.swift */,
+				81C9557E2395FE06006C2892 /* AdherenceViewController.swift */,
 			);
 			path = MoodyInvestor;
 			sourceTree = "<group>";
@@ -272,11 +308,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				81B41CF6235E87490058D460 /* Asset.swift in Sources */,
+				810ABC02239219CC00959170 /* ETFTableViewController.swift in Sources */,
+				81C9557D239396CC006C2892 /* StrategyFormViewController.swift in Sources */,
 				81B41CF4235CB9610058D460 /* RatingControl.swift in Sources */,
 				811CA936235E9D640042A501 /* AssetTableViewController.swift in Sources */,
 				811CA934235E99510042A501 /* AssetTableViewCell.swift in Sources */,
+				810ABC06239220D700959170 /* TransactionLogEntry.swift in Sources */,
+				819E1FC623920363004EB955 /* StockTableViewController.swift in Sources */,
 				81B41CC8235B8BE00058D460 /* AssetViewController.swift in Sources */,
+				810ABC082392490000959170 /* TransactionLogViewController.swift in Sources */,
 				81B41CC4235B8BE00058D460 /* AppDelegate.swift in Sources */,
+				810ABC0C239250A800959170 /* TransactionLogService.swift in Sources */,
+				810ABC0423921E1D00959170 /* MutualFundTableViewController.swift in Sources */,
+				81C955832396432E006C2892 /* AssetPriceService.swift in Sources */,
+				819E1FC823920845004EB955 /* BondTableViewController.swift in Sources */,
+				81C9558123960956006C2892 /* Strategy.swift in Sources */,
+				810ABC0A2392495A00959170 /* TransactionLogViewCell.swift in Sources */,
+				81C9557F2395FE06006C2892 /* AdherenceViewController.swift in Sources */,
 				81B41CC6235B8BE00058D460 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

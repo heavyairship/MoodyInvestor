@@ -11,15 +11,17 @@ import os.log
 
 class AssetTableViewController: UITableViewController {
     
+    //MARK: Static variables
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+
     //MARK: Properties
     var assets = [Asset]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        os_log("loading...", log: OSLog.default, type: .debug)
-        // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
         
+        navigationItem.leftBarButtonItems?.append(editButtonItem)
+
         // Load any saved assets, otherwise load sample data.
         if let savedAssets = loadAssets() {
             assets += savedAssets
@@ -49,30 +51,12 @@ class AssetTableViewController: UITableViewController {
         cell.nameLabel.text = "Symbol: " + asset.name.uppercased()
         cell.photoImageView.image = asset.photo
         cell.numberOfSharesLabel.text = String(asset.numberOfShares) + " share(s)"
-        let pricePerShare = pricePerShareFor(name: asset.name)
+        let pricePerShare = AssetPriceService.PricePerShareFor(name: asset.name)
         cell.pricePerShare.text = String(format: "Share value: $%.2f", pricePerShare)
         let value = pricePerShare * Float(asset.numberOfShares)
         cell.value.text = String(format: "Total value: $%.2f", value)
         cell.value.textColor = UIColor(red: 0.0, green: 100/256, blue: 0.0, alpha: 1.0)
         return cell
-    }
-
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            assets.remove(at: indexPath.row)
-            saveAssets()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
     }
 
     /*
@@ -89,7 +73,24 @@ class AssetTableViewController: UITableViewController {
         return true
     }
     */
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
 
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            assets.remove(at: indexPath.row)
+            saveAssets()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
     
     // MARK: - Navigation
 
@@ -122,28 +123,83 @@ class AssetTableViewController: UITableViewController {
     //MARK: Actions
     @IBAction func unwindToAssetList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AssetViewController, let asset = sourceViewController.asset {
-            
+            var oldAsset: Asset? = nil
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing asset.
+                oldAsset = assets[selectedIndexPath.row]
                 assets[selectedIndexPath.row] = asset
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
                 // Add a new asset.
                 let newIndexPath = IndexPath(row: assets.count, section: 0)
-                
                 assets.append(asset)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             
             // Save the assets.
             saveAssets()
+            
+            // Add entry to transaction log.
+            addTransactionLogEntry(asset: asset, oldAsset: oldAsset)
         }
+    }
+
+    func assetClass() -> String {
+        return "asset"
+    }
+    
+    func archiveURL() -> URL {
+        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent(assetClass())
+        return archiveURL
     }
     
     //MARK: Private Methods
     
+    private func nowAsString() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    private func transactionTypeFor(asset: Asset, oldAsset: Asset?) -> String {
+        if oldAsset != nil {
+            if asset.numberOfShares == oldAsset!.numberOfShares {
+                return "hold"
+            } else if asset.numberOfShares > oldAsset!.numberOfShares {
+                return "buy"
+            } else {
+                return "sell"
+            }
+        } else {
+            return "buy"
+        }
+    }
+    
+    
+    private func addTransactionLogEntry(asset: Asset, oldAsset: Asset?) {
+        // FixMe: This is super inefficient.
+        let savedTransactionLog:[TransactionLogEntry] = TransactionLogService.LoadTransactionLog() ?? [TransactionLogEntry]()
+        let pricePerShare = AssetPriceService.PricePerShareFor(name: asset.name)
+        let shareChange = asset.numberOfShares - (oldAsset?.numberOfShares ?? 0)
+        let transactionLog = savedTransactionLog + [TransactionLogEntry(
+            date: nowAsString(),
+            transactionId: savedTransactionLog.count,
+            assetName: asset.name,
+            assetClass: assetClass(),
+            transactionType: transactionTypeFor(asset: asset, oldAsset: oldAsset),
+            numberOfShares: asset.numberOfShares,
+            shareChange: shareChange,
+            pricePerShare: pricePerShare,
+            valueChange: pricePerShare*Float(shareChange),
+            mood: asset.mood)]
+        TransactionLogService.SaveTransactionLog(transactionLog: transactionLog)
+    }
+    
+    
     private func saveAssets() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(assets, toFile: Asset.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(assets, toFile: archiveURL().path)
         if isSuccessfulSave {
             os_log("Assets successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -152,20 +208,6 @@ class AssetTableViewController: UITableViewController {
     }
     
     private func loadAssets() -> [Asset]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Asset.ArchiveURL.path) as? [Asset]
-    }
-    
-    private func pricePerShareFor(name: String) -> Float {
-        // FixMe: use api!
-        switch(name.lowercased()) {
-        case "aapl":
-            return 240.51
-        case "goog":
-            return 1244.28
-        case "sbux":
-            return 85.35
-        default:
-            return 100.0
-        }
+        return NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL().path) as? [Asset]
     }
 }
