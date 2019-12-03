@@ -30,6 +30,7 @@
 		81C9557D239396CC006C2892 /* StrategyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9557C239396CC006C2892 /* StrategyFormViewController.swift */; };
 		81C9557F2395FE06006C2892 /* AdherenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9557E2395FE06006C2892 /* AdherenceViewController.swift */; };
 		81C9558123960956006C2892 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9558023960956006C2892 /* Strategy.swift */; };
+		81C955832396432E006C2892 /* AssetPriceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C955822396432E006C2892 /* AssetPriceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		81C9557C239396CC006C2892 /* StrategyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyFormViewController.swift; sourceTree = "<group>"; };
 		81C9557E2395FE06006C2892 /* AdherenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdherenceViewController.swift; sourceTree = "<group>"; };
 		81C9558023960956006C2892 /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		81C955822396432E006C2892 /* AssetPriceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPriceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				811CA933235E99510042A501 /* AssetTableViewCell.swift */,
 				81B41CF3235CB9610058D460 /* RatingControl.swift */,
 				81B41CC5235B8BE00058D460 /* SceneDelegate.swift */,
+				81C955822396432E006C2892 /* AssetPriceService.swift */,
 				81B41CF5235E87490058D460 /* Asset.swift */,
 				81B41CC7235B8BE00058D460 /* AssetViewController.swift */,
 				811CA935235E9D640042A501 /* AssetTableViewController.swift */,
@@ -317,6 +320,7 @@
 				81B41CC4235B8BE00058D460 /* AppDelegate.swift in Sources */,
 				810ABC0C239250A800959170 /* TransactionLogService.swift in Sources */,
 				810ABC0423921E1D00959170 /* MutualFundTableViewController.swift in Sources */,
+				81C955832396432E006C2892 /* AssetPriceService.swift in Sources */,
 				819E1FC823920845004EB955 /* BondTableViewController.swift in Sources */,
 				81C9558123960956006C2892 /* Strategy.swift in Sources */,
 				810ABC0A2392495A00959170 /* TransactionLogViewCell.swift in Sources */,

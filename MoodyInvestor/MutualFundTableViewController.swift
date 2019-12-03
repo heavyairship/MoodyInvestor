@@ -9,16 +9,22 @@ import UIKit
 
 class MutualFundTableViewController: AssetTableViewController {
     
+    static let assetClass = "mutual funds"
+
     @IBAction func back(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    static func ArchiveURL() -> URL {
+           let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent(assetClass)
+           return archiveURL
+    }
+    
     override func assetClass() -> String {
-        return "mutual fund"
+        return MutualFundTableViewController.assetClass
     }
     
     override func archiveURL() -> URL {
-        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("mutual_funds")
-        return archiveURL
+        return MutualFundTableViewController.ArchiveURL()
     }
 }

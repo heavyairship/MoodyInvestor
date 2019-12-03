@@ -9,16 +9,22 @@ import UIKit
 
 class ETFTableViewController: AssetTableViewController {
     
+    static let assetClass = "etfs"
+    
     @IBAction func back(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    static func ArchiveURL() -> URL {
+        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent(assetClass)
+        return archiveURL
+    }
+    
     override func assetClass() -> String {
-        return "etf"
+        return ETFTableViewController.assetClass
     }
     
     override func archiveURL() -> URL {
-        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("etfs")
-        return archiveURL
+        return ETFTableViewController.ArchiveURL()
     }
 }

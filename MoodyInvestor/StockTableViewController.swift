@@ -9,17 +9,22 @@ import UIKit
 
 class StockTableViewController: AssetTableViewController {
     
+    static let assetClass = "stocks"
     
     @IBAction func back(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    static func ArchiveURL() -> URL {
+        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent(assetClass)
+        return archiveURL
+    }
+    
     override func assetClass() -> String {
-        return "stock"
+        return StockTableViewController.assetClass
     }
     
     override func archiveURL() -> URL {
-        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("stocks")
-        return archiveURL
+        return StockTableViewController.ArchiveURL()
     }
 }

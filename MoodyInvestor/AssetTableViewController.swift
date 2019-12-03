@@ -51,7 +51,7 @@ class AssetTableViewController: UITableViewController {
         cell.nameLabel.text = "Symbol: " + asset.name.uppercased()
         cell.photoImageView.image = asset.photo
         cell.numberOfSharesLabel.text = String(asset.numberOfShares) + " share(s)"
-        let pricePerShare = pricePerShareFor(name: asset.name)
+        let pricePerShare = AssetPriceService.PricePerShareFor(name: asset.name)
         cell.pricePerShare.text = String(format: "Share value: $%.2f", pricePerShare)
         let value = pricePerShare * Float(asset.numberOfShares)
         cell.value.text = String(format: "Total value: $%.2f", value)
@@ -149,7 +149,7 @@ class AssetTableViewController: UITableViewController {
     }
     
     func archiveURL() -> URL {
-        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent("assets")
+        let archiveURL = AssetTableViewController.DocumentsDirectory.appendingPathComponent(assetClass())
         return archiveURL
     }
     
@@ -181,7 +181,7 @@ class AssetTableViewController: UITableViewController {
     private func addTransactionLogEntry(asset: Asset, oldAsset: Asset?) {
         // FixMe: This is super inefficient.
         let savedTransactionLog:[TransactionLogEntry] = TransactionLogService.LoadTransactionLog() ?? [TransactionLogEntry]()
-        let pricePerShare = pricePerShareFor(name: asset.name)
+        let pricePerShare = AssetPriceService.PricePerShareFor(name: asset.name)
         let shareChange = asset.numberOfShares - (oldAsset?.numberOfShares ?? 0)
         let transactionLog = savedTransactionLog + [TransactionLogEntry(
             date: nowAsString(),
@@ -209,19 +209,5 @@ class AssetTableViewController: UITableViewController {
     
     private func loadAssets() -> [Asset]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL().path) as? [Asset]
-    }
-    
-    private func pricePerShareFor(name: String) -> Float {
-        // FixMe: use api!
-        switch(name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) {
-        case "aapl":
-            return 240.51
-        case "goog":
-            return 1244.28
-        case "sbux":
-            return 85.35
-        default:
-            return 100.0
-        }
     }
 }

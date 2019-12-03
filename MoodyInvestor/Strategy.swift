@@ -96,13 +96,17 @@ class Strategy: NSObject, NSCoding {
      }
      
      static func SaveStrategy(strategy: Strategy?) {
-         let isSuccessful = NSKeyedArchiver.archiveRootObject(strategy, toFile: StrategyURL().path)
-         if isSuccessful {
-             os_log("Saved strategy successfully")
-         } else {
-             os_log("Failed to save strategy")
-         }
-     }
+        if strategy == nil {
+            os_log("Strategy is nil, cannot save it")
+            return
+        }
+        let isSuccessful = NSKeyedArchiver.archiveRootObject(strategy!, toFile: StrategyURL().path)
+        if isSuccessful {
+            os_log("Saved strategy successfully")
+        } else {
+            os_log("Failed to save strategy")
+        }
+    }
      
      static func LoadStrategy() -> Strategy? {
          return NSKeyedUnarchiver.unarchiveObject(withFile: StrategyURL().path) as? Strategy
