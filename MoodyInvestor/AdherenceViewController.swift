@@ -27,7 +27,8 @@ class AdherenceViewController: UIViewController {
     private func valueOf(assets: [Asset]) -> Float {
         var out: Float = 0.0
         for a in assets {
-            out += (Float(a.numberOfShares) * AssetPriceService.PricePerShareFor(name: a.name))
+            let price = AssetPriceService.PricePerShareFor(name: a.name)
+            out += (Float(a.numberOfShares) * price)
         }
         return out
     }

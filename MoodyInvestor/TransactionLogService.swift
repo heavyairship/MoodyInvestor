@@ -30,12 +30,12 @@ class TransactionLogService {
         }
         for e in transactionLog {
             if let entry = e {
-                print("Tid: \(entry.transactionId), ", terminator: "")
-                print("Date: \(entry.date), ", terminator: "")
-                print("Asset name: \(entry.assetName), ", terminator: "")
-                print("Asset class: \(entry.assetClass), ", terminator: "")
-                print("Trans type: \(entry.transactionType), ", terminator: "")
-                print("Share change: \(entry.shareChange)", terminator: "\n")
+                //print("Tid: \(entry.transactionId), ", terminator: "")
+                //print("Date: \(entry.date), ", terminator: "")
+                //print("Asset name: \(entry.assetName), ", terminator: "")
+                //print("Asset class: \(entry.assetClass), ", terminator: "")
+                //print("Trans type: \(entry.transactionType), ", terminator: "")
+                //print("Share change: \(entry.shareChange)", terminator: "\n")
             }
         }
     }
